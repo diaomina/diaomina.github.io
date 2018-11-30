@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>小傻瓜才玩的读心术</title>
+		<audio controls="controls" hidden="hidden" autoplay="autoplay" loop="loop">
+		<source src="答案.ogg" type="audio/ogg" />
+		<source src="答案.mp3" type="audio/mpeg" />
+		</audio>
+<style>
+	table td{
+		width:40px;height:30px;background-color:grey;
+	}
+	button{
+		width:80px;
+		height:40px;
+	}
+</style>
+	</head>
+	<body>
+	<div align="center">
+	   <div   id="tipsstart">
+		你，相信读心术吗？？？ <br/>
+		 <button onclick="beforeStart()" >相信</button> 
+	  </div>
+	 <div style="display:none" id="tips">请在心中想一个1~63的数字。不要告诉任何人。<br/>
+		<button onclick="startUp()">开始吧</button>
+	 </div> 
+	   
+	  <div>
+		 <table id="mytb"></table>
+		 <div style="display:none" id="choosediv">
+			上面的数字，有没有你心中想的那个数字？
+			请诚实选择。<br/>
+			<button onclick="choose('yes')">有</button>
+			<button onclick="choose('no')" style="margin-left:50px;">没有</button>
+		 </div>
+	  </div>
+	</div>
+<script type="text/javascript">
+var nums = [
+		//第一张牌
+			[
+			1,3,5,7,9,11,13,15,
+			17,19,21,23,25,27,29,31,
+			33,35,37,39,41,43,45,47,
+			49,51,53,55,57,59,61,63
+			],
+		//第二张牌：
+			[2,3,6,7,10,11,14,15,
+			18,19,22,23,26,27,30,31,
+			34,35,38,39,42,43,46,47,
+			50,51,54,55,58,59,62,63
+			],
+		//第三张牌
+			[4,5,6,7,12,13,14,15,
+			20,21,22,23,28,29,30,31,
+			36,37,38,39,44,45,46,47,
+			52,53,54,55,60,61,62,63
+			],
+		//第四张牌：
+			[8,9,10,11,12,13,14,15,
+			 24,25,26,27,28,29,30,31,
+			 40,41,42,43,44,45,46,47,
+			 56,57,58,59,60,61,62,63
+			],
+		//第五张牌：
+			[16,17,18,19,20,21,22,23,
+			24,25,26,27,28,29,30,31,
+			48,49,50,51,52,53,54,55,
+			56,57,58,59,60,61,62,63
+			],
+		//第六张牌：
+			[32,33,34,35,36,37,38,39,
+			40,41,42,43,44,45,46,47,
+			48,49,50,51,52,53,54,55,
+			56,57,58,59,60,61,62,63
+			]
+	]
+
+var tdinstance=[];
+var nums2 =[];
+var choose_index=0;// 1 2 3 4 5 6 
+var guess_num = 0;
+//1 创建表格
+function initTable(){
+	var tb = document.getElementById("mytb");
+	for(var i=0;i<4;i++){
+		var tr = document.createElement("tr");
+		for(var j=0;j<8;j++){
+			var td = document.createElement("td");
+			tr.appendChild(td);
+			tdinstance.push(td);
+		}
+		tb.appendChild(tr);
+	}
+}
+//2 乱序
+function luanxu(nums){
+	var templist=[];
+	for(var i=0;i<6;i++){
+		var temp=nums[i].concat([]);
+		templist[i]=[];
+		//对nums2[i]进行乱序。
+		
+		while( temp.length > 0  ){
+			templist[i].push( temp.splice(parseInt( Math.random()* temp.length ),1)[0] );  		 
+		}
+	}
+	return templist;
+}
+//3 将数字放入表格中
+function showNum(listnum){
+	for(var i=0;i<tdinstance.length;i++){
+		tdinstance[i].innerText = listnum[i];
+	}
+}
+ 
+function startUp(){
+	document.getElementById("tips").innerHTML="";
+	initTable();
+	nums2 = luanxu(nums);
+	showNum(nums2[0]);
+	document.getElementById("choosediv").style.display="";
+}
+
+function choose(cmd){
+	if(choose_index== 6)return;
+	if(cmd == "yes"){
+		guess_num+= Math.pow(2,choose_index);
+	} 
+	choose_index++;
+	//切换数字。
+	if(choose_index== 6){
+		var boolean = confirm("接下来就是见证奇迹的时刻。相信奇迹就点击确定");
+		if( boolean ){
+			alert("你心中想的数字是："+guess_num);
+		}else{
+			alert(" 很遗憾你不敢面对现实");
+		}
+		window.location.reload();
+	}else{
+		showNum(nums2[choose_index]);
+	}
+}
+
+function beforeStart(){
+	document.getElementById("tipsstart").style.display="none";
+	document.getElementById("tips").style.display="";
+}
+</script>
+<br>
+<p style="text-align:certer"><img src="054c2a31b67b1bc168bb78735cb919b5.gif" width="400" height="400" /></p>
+
+</body>
+</html>
