@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html;	charset=utf-8">
+	<meta name="Keywords" content="关键字，关键字">
+	<meta name="description" content="描述信息">
+	<title>08-css的基本选择器的优先级</title>
+	<style type="text/css">
+
+		div {
+			background-color:red;
+		}
+		#aaa{
+			background-color:green;
+		}
+
+		.a {
+			background-color:blue;
+		}
+
+	</style>
+ </head>
+ <body>
+ 	<!-- 优先级：标签内的style > id选择器 > class选择器 > 标签选择器-->
+		<div>
+		<pre>
+			什么是 CSS?
+			CSS 指层叠样式表 (Cascading Style Sheets)
+			样式定义如何显示 HTML 元素
+			样式通常存储在样式表中
+			把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题
+			外部样式表可以极大提高工作效率
+			外部样式表通常存储在 CSS 文件中
+			多个样式定义可层叠为一
+		</pre>
+	</div>
+	<br/><br/>
+
+	<div id="aaa" class="a">
+		<pre>
+			什么是 CSS?
+			CSS 指层叠样式表 (Cascading Style Sheets)
+			样式定义如何显示 HTML 元素
+			样式通常存储在样式表中
+			把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题
+			外部样式表可以极大提高工作效率
+			外部样式表通常存储在 CSS 文件中
+			多个样式定义可层叠为一
+		</pre>
+	</div>
+	<br/><br/>
+
+	<div id="aaa" style="background-color:#ffcc00;">
+		<pre>
+			什么是 CSS?
+			CSS 指层叠样式表 (Cascading Style Sheets)
+			样式定义如何显示 HTML 元素
+			样式通常存储在样式表中
+			把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题
+			外部样式表可以极大提高工作效率
+			外部样式表通常存储在 CSS 文件中
+			多个样式定义可层叠为一
+		</pre>
+	</div>
+ </body>
+</html>
