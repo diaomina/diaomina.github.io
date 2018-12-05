@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html;	charset=utf-8">
+	<meta name="Keywords" content="关键字，关键字">
+	<meta name="description" content="描述信息">
+	<title>css的盒子模型</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 100px;
+			border: 2px solid blue;
+		}
+		/* 单独设置：右边框 */
+		#div11 {
+			border-right: 2px dashed yellow;
+		}
+		/* 全部设置：内边距 */
+		#div21 {
+			padding: 20px;
+		}
+		/* 单独设置：左内边距 ps:距离不够时会撑大div的面积达到要求内边距*/
+		#div22 {
+			padding: 50px;
+		}
+		/* 全部设置：外边距 */
+		#div31 {
+			margin: 20px;
+		}
+		/* 单独设置：左外边距 */
+		#div32 {
+			margin-left: 50px;
+		}
+	</style>
+ </head>
+ <body>
+	<div id="div11">AAAAAAAAAAAAAAAAAA</div>
+	<div id="div12">BBBBBBBBBBBBBBBBBB</div>
+	<div id="div13">CCCCCCCCCCCCCCCCCC</div>
+	<br/><br/><hr color="red"/ ><br/><br/>
+	<div id="div21">AAAAAAAAAAAAAAAAAA</div>
+	<div id="div22">BBBBBBBBBBBBBBBBBB</div>
+	<div id="div23">CCCCCCCCCCCCCCCCCC</div>
+	<br/><br/><hr color="red"/ ><br/><br/>
+	<div id="div31">AAAAAAAAAAAAAAAAAA</div>
+	<div id="div32">BBBBBBBBBBBBBBBBBB</div>
+	<div id="div33">CCCCCCCCCCCCCCCCCC</div>
+ </body>
+</html>

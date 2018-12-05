@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html;	charset=utf-8">
+	<meta name="Keywords" content="关键字，关键字">
+	<meta name="description" content="描述信息">
+	<title>css的布局的定位</title>
+
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 150px;
+			border: 2px solid blue;
+			padding: 25px;
+		}
+		hr {
+			color:red;
+		}
+
+		/* position:absolute; 会将对象从文档流中拖出 */
+		#div51 {
+			background-color: red;
+			position:absolute;
+			top: 80px;
+			left: 200px;
+		}
+		#div52 {
+			background-color: green;
+		}
+		#div53 {
+			background-color: orange;
+		}
+
+		/* position:relative;  不会将对象从文档流中拖出*/
+		#div61 {
+			background-color: red;
+			position:relative;
+			top: 80px;
+			left: 200px;
+		}
+		#div62 {
+			background-color: green;
+		}
+		#div63 {
+			background-color: orange;
+		}
+
+	</style>
+ </head>
+ <body>
+	<div id="div51">AAAAAAAAAA</div>
+	<div id="div52">BBBBBBBBBB</div>
+	<div id="div53">CCCCCCCCCC</div>
+	<hr/><br/><br/><hr/>
+	<div id="div61">AAAAAAAAAA</div>
+	<div id="div62">BBBBBBBBBB</div>
+	<div id="div63">CCCCCCCCCC</div>
+ </body>
+</html>
